@@ -47,7 +47,7 @@ public class EmployeeDemo
 			boolean found=false;
 			for(int i=0;i<emp.size();i++)
 			{
-				if(emp.get(i).getEmpId()==0||e.getEmpId()==0||emp.get(i)==null)
+				if(emp.get(i)==null)
 				{
 					found= false;
 				}
