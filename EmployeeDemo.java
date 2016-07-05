@@ -2,12 +2,14 @@ package com;
 
 import java.util.ArrayList;
 
-public class EmployeeDemo {
+public class EmployeeDemo 
+{
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		// TODO Auto-generated method stub
 		ArrayList<Employee> emp = new ArrayList<Employee>();
 		Employee e1=new  Employee(1,"aaa","Delhi");
@@ -21,33 +23,39 @@ public class EmployeeDemo {
 		
 		Employee e=new  Employee(9,"vvv","Mumbai");
 		
-		emp.add(emp.size(), e1);
-		emp.add(emp.size(), e2);
-		emp.add(emp.size(), e3);
-		emp.add(emp.size(), e4);
-		emp.add(emp.size(), e5);
-		emp.add(emp.size(), e6);
-		emp.add(emp.size(), e7);
-		emp.add(emp.size(), e8);
+		emp.add(e1);
+		emp.add(e2);
+		emp.add(e3);
+		emp.add(e4);
+		emp.add(e5);
+		emp.add(e6);
+		emp.add(e7);
+		emp.add(e8);
 		
-		boolean find = searchEmployee(emp,e3);
-		int findd = getEmployees(emp,"Chennai");
+		boolean find = searchEmployee(emp,e5);
+		int findd = getEmployees(emp,"Mumbai");
 		System.out.println(find);
 		System.out.println(findd);
 	}
 
 	public static boolean searchEmployee(ArrayList<Employee> emp, Employee e)
 	{
-		if(e==null)
+		if(e==null || emp == null)
 			return false;
 		else
 		{
 			boolean found=false;
 			for(int i=0;i<emp.size();i++)
-				if(emp.get(i).getEmpId()==e.getEmpId())
+			{
+				if(emp.get(i).getEmpId()==0||e.getEmpId()==0||emp.get(i)==null)
+				{
+					found= false;
+				}
+				else if(emp.get(i).getEmpId()==e.getEmpId())
 				{
 					found = true;
 				}
+			}
 			return found;
 		}
 		
@@ -57,10 +65,12 @@ public class EmployeeDemo {
 	{
 		int count=0;
 		for(int i=0;i<emp.size();i++)
+		{
 			if(emp.get(i).getCity()==city)
 			{
 				count+=1;
 			}
+		}
 		return count;
 	}
 	
