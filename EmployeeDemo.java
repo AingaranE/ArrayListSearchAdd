@@ -21,7 +21,7 @@ public class EmployeeDemo
 		Employee e7=new  Employee(7,"kkk","Delhi");
 		Employee e8=new  Employee(8,"iii","Chennai");
 		
-		Employee e=new  Employee(9,"vvv","Mumbai");
+		//Employee e=new  Employee(9,"vvv","Mumbai");
 		
 		emp.add(e1);
 		emp.add(e2);
@@ -66,9 +66,13 @@ public class EmployeeDemo
 		int count=0;
 		for(int i=0;i<emp.size();i++)
 		{
-			if(emp.get(i).getCity()==city)
+			if(emp.get(i)==null || city==null)
 			{
-				count+=1;
+				return 0;
+			}
+			else if(emp.get(i).getCity()==city)
+			{
+				count++;
 			}
 		}
 		return count;
